@@ -14,6 +14,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+  end
+
+  def update
+    current_user.update_attributes!(user_params)
+    redirect_to root_url, notice: "Successfully updated your profile"
+  end
+
   def user_params
     params.require(:user).permit!
   end
