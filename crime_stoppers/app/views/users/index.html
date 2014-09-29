@@ -1,6 +1,7 @@
 <% if current_user %>
 	<%= link_to "Log Out", sign_out_path %>
 	<%= link_to "Edit your profile", edit_user_path(current_user) %>
+	<%= link_to "Import new records", crime_records_path %>
 <% else %>
 	<%= link_to "Log in", new_session_path %>
 	<%= link_to "Sign up", new_user_path %>
