@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Address: MyString
+  type: 1
+  area_id: 1
+
+two:
+  Address: MyString
+  type: 1
+  area_id: 1

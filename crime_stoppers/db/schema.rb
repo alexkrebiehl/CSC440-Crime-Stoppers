@@ -11,7 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909054815) do
+ActiveRecord::Schema.define(version: 20140929055510) do
+
+  create_table "crime_records", force: true do |t|
+    t.integer  "location_id"
+    t.integer  "crime_type_id"
+    t.integer  "event_id"
+    t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "crime_types", force: true do |t|
+    t.integer  "severity"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locations", force: true do |t|
+    t.string   "Address"
+    t.integer  "type"
+    t.integer  "area_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username"

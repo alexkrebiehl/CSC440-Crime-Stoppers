@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location_id: 1
+  crime_type_id: 1
+  event_id: 1
+  date: 
+
+two:
+  location_id: 1
+  crime_type_id: 1
+  event_id: 1
+  date: 
