@@ -1,0 +1,17 @@
+<div class="page-header">
+  <h1><%= @crime_type.name %></h1>
+</div>
+
+
+<table class="table table-bordered">
+  <tr>
+    <th>Location</th>
+    <th>Date</th>
+  </tr>
+  <% @crimes.each do |crime| %>
+      <tr>
+        <td><%= Location.find(crime.location_id).address %></td>
+        <td><%= crime.date %></td>
+      </tr>
+  <% end %>
+</table>

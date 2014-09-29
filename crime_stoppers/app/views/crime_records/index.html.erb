@@ -1,5 +1,14 @@
-<h2>Import Products</h2>
-<%= form_tag import_crime_records_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
+<% if current_user.is_admin%>
+  <h2>Import Products</h2>
+  <%= form_tag import_crime_records_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import" %>
+  <% end %>
 <% end %>
+
+<h3>Crime Types</h3>
+<table class="table table-hover">
+  <% @crime_types.each do |crime_type| %>
+      <tr><td><%= link_to crime_type.name, crime_record_path(crime_type) %><td><tr>
+  <% end %>
+</table>
