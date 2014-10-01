@@ -6,8 +6,6 @@ class CrimeRecord < ActiveRecord::Base
         data = row.to_s.split(',')
         location = Location.find_or_create_from_address(data[2])
         crime_type = CrimeType.find_or_create_from_name(data[3])
-	puts data[1]
-	puts row.to_s.split(',')
 	crime_record.date = data[0]
 	crime_record.event_id = data[1]
 	crime_record.crime_type_id = crime_type.id

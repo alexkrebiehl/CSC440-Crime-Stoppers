@@ -1,0 +1,13 @@
+<div class="page-header">
+  <h1>Password Recovery</h1>
+</div>
+
+<div class="row col-sm-4">
+  <%= form_for :user, url: forget_password_path do |f| %>
+      <div class="form-group">
+        <%= f.label :email, 'Email' %>
+        <%= f.text_field :email %>
+      </div>
+      <%= f.submit "Send me", class: 'btn btn-primary' %>
+  <% end %>
+</div>

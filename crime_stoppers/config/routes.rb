@@ -5,5 +5,7 @@ CrimeStoppers::Application.routes.draw do
     collection { post :import }
   end
   get "sign_out", to: "sessions#destroy"
-  root to: "users#index"  
+  get "forget_password_form", to: "users#forget_password_form"
+  post "forget_password", to: "users#forgot_password"
+  root to: "users#index"
 end
