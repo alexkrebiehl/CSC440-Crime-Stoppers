@@ -1,7 +1,6 @@
 <% if current_user.is_admin%>
   <h2>Import Records</h2>
   <%= form_tag import_crime_records_path, multipart: true do %>
-    <%= file_field_tag :file %>
     <%= submit_tag "Import" %>
   <% end %>
 <% end %>
