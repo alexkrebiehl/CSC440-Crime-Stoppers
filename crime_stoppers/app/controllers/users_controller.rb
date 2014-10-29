@@ -1,4 +1,13 @@
+require 'date'
 class UsersController < ApplicationController
+  
+  def index
+    @hash = Hash.new(0)
+    CrimeType.all.each do |ct|
+      count = CrimeRecord.where(:crime_type_id => ct.id).count
+      @hash[ct.name] = count
+    end
+  end
 
   def new
     @user = User.new
