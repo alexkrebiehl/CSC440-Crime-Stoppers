@@ -38,10 +38,10 @@ class UsersController < ApplicationController
   end 
 
   def forgot_password
+    user = User.where(:email => params[:user]["email"]).first
     if user.nil?
       redirect_to root_url, :notice => "The Account Doesn't Exist!"
     else
-      user = User.where(:email => params[:user]["email"]).first
       password  = SecureRandom.base64
       user.password = password
       user.password_confirmation = password
