@@ -10,7 +10,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
     <!-- Custom CSS -->
     <style>
     body {
@@ -72,7 +72,7 @@
             </div>
         </div>
         <!-- /.row -->
-
+	<%= pie_chart(@hash) %>
     </div>
     <!-- /.container -->
 
