@@ -1,6 +1,7 @@
 CrimeStoppers::Application.routes.draw do
   resources :users 
   resources :sessions 
+  resources :crime_types
   resources :crime_records do
     collection { post :import }
   end

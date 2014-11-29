@@ -1,0 +1,18 @@
+<h3>Edit</h3>
+<div class="row col-sm-6">
+  <%= form_for @crime_type do |f| %>
+    <div class="form-group">
+      <%= f.label :name, 'Name' %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :severity, 'Severity' %>
+      <%= f.text_field :severity, class: 'form-control' %>
+    </div>
+
+    <%= f.submit class: 'btn btn-primary' %>
+    &nbsp;or
+    <%= link_to 'Cancel', users_path %>
+  <% end %>
+</div>
