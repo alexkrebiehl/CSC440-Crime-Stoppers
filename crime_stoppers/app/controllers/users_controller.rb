@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def index
     @date1 = params[:date1]
     @date2 = params[:date2]
-    if @date1.nil? || date1.empty?
+    if @date1.nil? || @date1.empty?
       @date1 = Date.today
       @date1 = @date1.prev_year
     else
