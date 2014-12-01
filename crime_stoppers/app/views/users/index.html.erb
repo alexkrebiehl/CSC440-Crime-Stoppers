@@ -26,6 +26,21 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- Date picker stylesheet and js start-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script>
+      $(function() {
+        $( "#datepicker1" ).datepicker();
+      });
+      $(function() {
+        $( "#datepicker2" ).datepicker();
+      });
+   </script>
+    <!-- Date picker stylesheet and js end-->
+
 </head>
 
 <body>
@@ -72,6 +87,13 @@
             </div>
         </div>
         <!-- /.row -->
+	<!-- Date picker start-->
+	<%= form_tag "/", method: "get" do %>
+  		<p>Date: <input value = "<%= @date %>" name = "date1" type="text" id="datepicker1"></p>
+                <p>Date: <input value = "<%= @date %>" name = "date2" type="text" id="datepicker2"></p>
+  		<input type="submit" value="Submit"> 
+	<% end %>
+	<!-- Date picker end-->
 	<%= pie_chart(@hash) %>
     </div>
     <!-- /.container -->

@@ -2,11 +2,21 @@ require 'date'
 class UsersController < ApplicationController
   
   def index
+    date1 = params[:date1]
+    date2 = params[:date2]
+    if date1.nil? || date2.empty?
+      date1 = Date.today
+    elsif date2.nil? || date2.empty?
+      date2 = Date.today
+    else
+      date1 = Date.strptime( date1.gsub("/","-") , '%m-%d-%Y')
+      date2 = Date.strptime( date2.gsub("/","-") , '%m-%d-%Y')
+    end 
     @hash = Hash.new(0)
-    CrimeType.all.each do |ct|
-      count = CrimeRecord.where(:crime_type_id => ct.id).count
-      @hash[ct.name] = count
-    end
+     CrimeType.all.each do |ct|
+       count = CrimeRecord.where("crime_type_id = ? and date < ? and date > ?",ct.id, date2, date1).count
+       @hash[ct.name] = count
+     end
   end
 
   def new
