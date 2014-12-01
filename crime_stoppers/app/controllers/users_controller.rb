@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def index
     @date1 = params[:date1]
     @date2 = params[:date2]
+    @severity = params[:severity] || 0
     if @date1.nil? || @date1.empty?
       @date1 = Date.today
       @date1 = @date1.prev_year
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
       @date2 = Date.strptime( @date2.gsub("/","-") , '%m-%d-%Y')
     end 
     @hash = Hash.new(0)
-     CrimeType.all.each do |ct|
+     CrimeType.where(:severity => @severity ).each do |ct|
        count = CrimeRecord.where("crime_type_id = ? and date < ? and date > ?",ct.id, @date2, @date1).count
        @hash[ct.name] = count
      end
