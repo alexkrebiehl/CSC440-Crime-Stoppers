@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     if @date1.nil? || @date1.empty?
       @date1 = Date.today
       @date1 = @date1.prev_year
-      @date1 = Date.strptime( @date1.gsub("/","-") , '%Y-%m-%d')
     else
       begin
         @date1 = Date.strptime( @date1.gsub("/","-") , '%m-%d-%Y')
@@ -18,7 +17,6 @@ class UsersController < ApplicationController
     end
     if @date2.nil? || @date2.empty?
       @date2 = Date.today
-      @date1 = Date.strptime( @date1.gsub("/","-") , '%Y-%m-%d')
     else
       begin
         @date2 = Date.strptime( @date2.gsub("/","-") , '%m-%d-%Y')
@@ -27,7 +25,7 @@ class UsersController < ApplicationController
       end
     end 
     @hash = Hash.new(0)
-     CrimeType.where(:severity => @severity ).each do |ct|
+    CrimeType.where(:severity => @severity ).each do |ct|
        count = CrimeRecord.where("crime_type_id = ? and date < ? and date > ?",ct.id, @date2, @date1).count
        @hash[ct.name] = count
      end
