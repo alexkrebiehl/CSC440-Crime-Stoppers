@@ -27,7 +27,11 @@ class UsersController < ApplicationController
     @hash = Hash.new(0)
     CrimeType.where(:severity => @severity ).each do |ct|
        count = CrimeRecord.where("crime_type_id = ? and date < ? and date > ?",ct.id, @date2, @date1).count
-       @hash[ct.name] = count
+       if ct.incident_description.nil? || ct.incident_description.empty?
+         @hash[ct.name] = count
+       else
+	 @hash[ct.incident_description] = count
+       end
      end
   end
 
