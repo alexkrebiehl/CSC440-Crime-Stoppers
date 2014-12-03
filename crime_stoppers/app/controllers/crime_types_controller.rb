@@ -4,9 +4,11 @@ class CrimeTypesController < ApplicationController
   end
 
   def update
-    @crime_type = CrimeType.find(params["id"])
-    @crime_type.update_attributes!(crime_type_params)
-    redirect_to root_url, notice: "Successfully updated the crime type"
+    if current_user.is_admin?
+      @crime_type = CrimeType.find(params["id"])
+      @crime_type.update_attributes!(crime_type_params)
+      redirect_to root_url, notice: "Successfully updated the crime type"
+    end
   end
 
   def crime_type_params

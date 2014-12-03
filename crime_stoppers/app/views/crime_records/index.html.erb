@@ -10,7 +10,9 @@
   <% @crime_types.each do |crime_type| %>
       <tr>
 	<td><%= link_to crime_type.name, crime_record_path(crime_type) %></td>
-	<td><%= link_to "Edit", edit_crime_type_path(crime_type) %></td>
+	<% if current_user.is_admin%>
+	  <td><%= link_to "Edit", edit_crime_type_path(crime_type) %></td>
+        <% end %>
       </tr>
   <% end %>
 </table>
