@@ -93,7 +93,13 @@
                 <p>Date: <input value = "<%= @date2 %>" name = "date2" type="text" id="datepicker2"></p>
 		<p>Severity: 
 		<select name="severity">
-			<option value = <%= @severity %> selected="selected"><%= @severity %></option>
+			<option value = <%= @severity %> selected="selected">
+				<% if @severity == 0%>
+					<%= puts "All" %>
+				<% else %>
+					<%=  @severity %>
+				<% end %></option>
+			<option value="0">All</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

@@ -56,4 +56,4 @@ fi;
 # Database migration and run the server with port 3000 
 cd /home/ec2-user/csc440/csc440/crime_stoppers
 sudo /usr/local/bin/rake db:migrate RAILS_ENV=production
-sudo /usr/local/bin/rails s -d -e production
+sudo /usr/local/bin/thin start -e production --ssl
